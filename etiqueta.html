@@ -2306,7 +2306,7 @@ var qrcode = function() {
 </script>
 <style id="pg"></style>
 <style>
-*{box-sizing:border-box}
+*{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 html,body{margin:0;padding:0;background:#e9ecea;font-family:"Segoe UI",Arial,Helvetica,sans-serif;color:#1e2826}
 #bar{padding:12px 16px;background:#fff;border-bottom:1px solid #ccc;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 #bar button,#bar select{font-size:16px;padding:10px 14px;border-radius:6px;border:1px solid #0078be;background:#fff}
@@ -2323,8 +2323,8 @@ html,body{margin:0;padding:0;background:#e9ecea;font-family:"Segoe UI",Arial,Hel
 .rot .lab{transform-origin:0 0;transform:translateX(104mm) rotate(90deg)}
 .screen .sheet{width:151mm;height:104mm}
 .frame{position:absolute;left:5mm;top:7mm;right:5mm;bottom:7mm;border:0.9mm solid #000}
-.lv{position:absolute;left:calc(50% - 0.35mm);top:4mm;bottom:4mm;width:0.7mm;background:#000}
-.lh{position:absolute;left:5mm;right:5mm;top:calc(50% - 0.35mm);height:0.7mm;background:#000}
+.lv{position:absolute;left:calc(50% - 0.35mm);top:4mm;bottom:4mm;width:0;border-left:0.7mm solid #000}
+.lh{position:absolute;left:5mm;right:5mm;top:calc(50% - 0.35mm);height:0;border-top:0.7mm solid #000}
 .q{position:absolute;padding:0 3mm}
 .tl{left:5mm;top:7mm}.tr{right:5mm;top:7mm;text-align:right}
 .bl{left:5mm;bottom:7mm}.br{right:5mm;bottom:7mm;text-align:right}

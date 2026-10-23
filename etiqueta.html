@@ -2340,6 +2340,7 @@ html,body{margin:0;padding:0;background:#e9ecea;font-family:"Segoe UI",Arial,Hel
 .qr{position:absolute;left:calc(50% - 21mm);top:calc(50% - 21mm);width:42mm;height:42mm;background:#fff;border:0.6mm solid #000;padding:1mm}
 .qr svg{display:block;width:100%;height:100%}
 .warn{font-weight:bold}
+.ast{font-size:1.5em;line-height:0;vertical-align:-0.05em;margin-left:0.5mm}
 @media print{
   #bar,#form{display:none}
   html,body{background:#fff}
@@ -2365,6 +2366,7 @@ html,body{margin:0;padding:0;background:#e9ecea;font-family:"Segoe UI",Arial,Hel
   <label>Lote<input data-k="l" value="R261023-01"></label>
   <label>Bruto kg<input data-k="b" value="612"></label>
   <label>Neto est. kg<input data-k="n" value="587"></label>
+  <label>Neto etiqueta kg (opcional)<input data-k="nt" value=""></label>
   <label>Peso confirmado (1/0)<input data-k="ok" value="0"></label>
   <label>Aviso<input data-k="w" value=""></label>
 </div>
@@ -2393,7 +2395,7 @@ function draw(){
     '<div class="frame"></div><div class="lv"></div><div class="lh"></div>'+
     '<div class="q tl"><div class="t">FECHA</div><div class="big" style="font-size:'+fit(v('f'),11,6,half)+'mm">'+esc(v('f'))+'</div><div class="sm">'+esc(v('l'))+'</div></div>'+
     '<div class="q tr"><div class="t">Nº</div><div class="big" style="font-size:'+fit(v('p'),9.5,5,half)+'mm">'+esc(v('p'))+'</div></div>'+
-    '<div class="q bl"><div class="t">PESO</div><div class="big" style="font-size:'+fit(v('b')+(ok?'':'*'),15,8,inner)+'mm">'+esc(v('b'))+(ok?'':'*')+'</div><div class="sm">kg bruto<br>neto est. '+esc(v('n'))+' kg</div></div>'+
+    '<div class="q bl"><div class="t">PESO</div><div class="big" style="font-size:'+fit(v('b')+(ok?'':'**'),15,8,inner)+'mm">'+esc(v('b'))+(ok?'':'<span class="ast">*</span>')+'</div>'+(ok?'<div class="sm">kg bruto<br>neto est. '+esc(v('n'))+' kg</div>':'<div class="sm">kg bruto s/ etiqueta'+(v('nt')?'<br>neto etiq. '+esc(v('nt'))+' kg':'')+'<br><b>* peso sin verificar</b></div>')+'</div>'+
     '<div class="q br"><div class="t">GRUPO</div><div class="big" style="font-size:'+fit(v('c'),7.5,4,half)+'mm">'+esc(v('c'))+'</div><div class="sm">'+esc(v('cat'))+''+(w?'<br><span class="warn">⚠ '+esc(w)+'</span>':'')+'</div></div>'+
     '<div class="qr" id="q"></div>';
   try{const q=qrcode(0,'M');q.addData(v('p'));q.make();document.getElementById('q').innerHTML=q.createSvgTag({cellSize:4,margin:1,scalable:true});}
